@@ -1,0 +1,57 @@
+
+ <!-- <div *ngIf="dialogComponentService.getLoadingFlag()" class="loading">
+</div> -->
+<div *ngIf="dialogComponentService?.getLoadingFlag()" class="progress">
+    <div class="indeterminate"></div>
+</div>
+<div class="showbox" *ngIf="dialogComponentService?.getLoadingFlag()">
+    <div class="loader">
+        <svg class="circular" viewBox="25 25 50 50">
+            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" />
+        </svg>
+    </div>
+</div>
+
+<!--modal for display Auto dialog for message-->
+<div kiDialog #autoDialogModal="ki-dialog" class="modal ki-dialog fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="modal-title">{{dialogClass[getTitle()]}}</h6>
+            </div>
+            <div class="modal-body">
+                <div class="body-contents">
+                    <div class="icon align-self-center">
+                        <a [ngClass]="'dige-icons ' + dialogClass[getTitle()]"></a>
+                    </div>
+                    <div class="dilg-msg">{{dialogComponentService.getMessage()}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--modal for display Auto dialog for message-->
+
+ 
+<!--modal for display dialog message with close button-->
+<div kiDialog #dialogModal="ki-dialog" class="modal ki-dialog fade" tabindex="-1" role="dialog"   aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="modal-title">{{dialogClass[getTitle()]}}</h6>
+            </div>
+            <div class="modal-body">
+                <div class="body-contents">
+                    <div class="icon align-self-center">
+                        <a [ngClass]="'dige-icons ' + dialogClass[getTitle()]"></a>
+                    </div>
+                    <div class="dilg-msg">{{dialogComponentService?.getMessage()}}</div>
+                    <div class="ta-r">
+                        <button type="button" class="btn btn-primary sm" (click)="dialogComponentService?.onMessageClose()">Ok</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--modal for display dialog message with close button-->
